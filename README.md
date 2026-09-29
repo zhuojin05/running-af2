@@ -10,7 +10,7 @@ Full-length Munc13-1 is a massive homooligomer (~5,200 residues as a trimer) con
 
 | Construct | Name | Subunits / Stoichiometry | Residues per Monomer | Total Residues | Key Interface / Biological Purpose |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Construct A** | **Munc13C Trimer** | $A_3$ Homotrimer | 1,145 AA | 3,435 AA | Functional core (residues 529–1735, $\Delta$1408–1452 replaced with EF) evaluating the upright trimer MUN interface. |
+| **Construct A** | **Munc13C Trimer** | $A_3$ Homotrimer | 1,145 AA | 3,435 AA | Functional core (residues 529–1735, $\Delta$ 1408–1452 replaced with EF) evaluating the upright trimer MUN interface. |
 | **Construct B** | **MUN-C2C Minimal Trimer** | $B_3$ Homotrimer | 569 AA | 1,707 AA | Reduced-memory test evaluating the electrostatic trimer contact patch (K1495/K1500 and D1358/D1369). |
 | **Construct C** | **Active Zone Condensate Heterodimer** | $C_1 : C_2$ Heterodimer | 150 AA + 120 AA | 270 AA | Munc13-1 C2A (1–150) paired with RIM1α zinc-finger domain (1–120) capturing synaptic scaffolding switch. |
 
@@ -108,5 +108,5 @@ python analyze_results.py outputs/construct_b targets/construct_b.fasta
 | Trimer Assembly & Chains | Electrostatic Contact Zoom | Annotated PAE Heatmap |
 | :---: | :---: | :---: |
 | ![Construct B Chains](assets/construct_b_pymol_chains.png) | ![Contact Patch](assets/construct_b_pymol_contact_zoom.png) | ![Construct B PAE](assets/construct_b_pae_annotated.png) |
-| *Construct B $B_3$ homotrimer colored by chain* | *Basic patch (K1495/K1500) and acidic patch (D1358/D1369)* | *Inter-chain PAE demarcated with chain boundaries* |
+| *Construct B* $B_3$ *homotrimer colored by chain* | *Basic patch (K1495/K1500) and acidic patch (D1358/D1369)* | *Inter-chain PAE demarcated with chain boundaries* |
 
