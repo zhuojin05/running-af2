@@ -1,0 +1,8 @@
+# Core dependencies for serverless ColabFold / AlphaFold2-multimer pipeline
+modal>=1.5.0
+numpy>=2.0.0
+matplotlib>=3.10.0
+
+# Optional / External tools:
+# PyMOL (for visualize_construct_b.py) is recommended to be installed via conda:
+# conda install -c conda-forge pymol-open-source

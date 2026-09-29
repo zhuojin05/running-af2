@@ -1,0 +1,25 @@
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Pipeline Prediction Outputs & large structural artifacts
+# (persistent backup is handled in cloud via modal.Volume("colabfold-outputs"))
+outputs/
+*.pdb
+*.a3m
+*.pse
+
+# Environment variables & local configs
+.env
+*.local
