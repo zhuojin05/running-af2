@@ -102,3 +102,11 @@ To re-run quality checks on existing predictions at any time:
 ```bash
 python analyze_results.py outputs/construct_b targets/construct_b.fasta
 ```
+
+### Example Structural Validation (Construct B Minimal Trimer)
+
+| Trimer Assembly & Chains | Electrostatic Contact Zoom | Annotated PAE Heatmap |
+| :---: | :---: | :---: |
+| ![Construct B Chains](assets/construct_b_pymol_chains.png) | ![Contact Patch](assets/construct_b_pymol_contact_zoom.png) | ![Construct B PAE](assets/construct_b_pae_annotated.png) |
+| *Construct B $B_3$ homotrimer colored by chain* | *Basic patch (K1495/K1500) and acidic patch (D1358/D1369)* | *Inter-chain PAE demarcated with chain boundaries* |
+

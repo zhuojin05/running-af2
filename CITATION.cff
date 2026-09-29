@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this pipeline or its structural models in your research, please cite it as below."
+title: "Serverless Munc13-1 AlphaFold2-Multimer Prediction Pipeline on Modal"
+authors:
+  - family-names: "Jin"
+    given-names: "Zhuo"
+date-released: 2026-09-29
+url: "https://github.com/zhuojin05/running-af2"
+keywords:
+  - "AlphaFold2"
+  - "ColabFold"
+  - "Modal"
+  - "Structural Biology"
+  - "Munc13-1"
+  - "Multimer"
+license: MIT

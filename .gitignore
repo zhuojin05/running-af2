@@ -9,17 +9,50 @@ __pycache__/
 *$py.class
 .pytest_cache/
 
+# IDEs & Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
 # OS artifacts
 .DS_Store
 Thumbs.db
+._*
 
 # Pipeline Prediction Outputs & large structural artifacts
-# (persistent backup is handled in cloud via modal.Volume("colabfold-outputs"))
+# (persistent cloud backup is handled via modal.Volume("colabfold-outputs"))
 outputs/
 *.pdb
 *.a3m
 *.pse
 
+# Logs & execution traces
+*.log
+*.out
+*.err
+log.txt
+
+# Cloud & Modal local state
+.modal/
+modal.toml
+
+# Scratch & Temporary Folders
+scratch/
+tmp/
+temp/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Compressed archives & raw search dumps
+*.tar
+*.tar.gz
+*.zip
+*.m8
+
 # Environment variables & local configs
 .env
 *.local
+

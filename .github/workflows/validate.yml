@@ -1,0 +1,33 @@
+name: Validate Targets & Code Syntax
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Python Syntax & Bytecode Compilation Check
+        run: |
+          python -m py_compile *.py
+
+      - name: Validate FASTA Syntax & Stoichiometry (Dry-Run)
+        run: |
+          python run_prediction.py --all --dry-run
