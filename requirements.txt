@@ -1,8 +1,14 @@
 # Core dependencies for serverless ColabFold / AlphaFold2-multimer pipeline
+# Note: This repository is managed via the 'uv' package manager (see pyproject.toml and uv.lock).
+# For best performance and reproducibility, install using:
+#     uv sync
+# Or for legacy pip installations:
+#     pip install -r requirements.txt
+
 modal>=1.5.0
 numpy>=2.0.0
 matplotlib>=3.10.0
 
 # Optional / External tools:
-# PyMOL (for visualize_construct_b.py) is recommended to be installed via conda:
-# conda install -c conda-forge pymol-open-source
+# PyMOL (for visualize_construct_b.py) can be run directly with:
+#     uv run visualize_construct_b.py

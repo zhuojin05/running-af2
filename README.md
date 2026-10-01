@@ -34,6 +34,8 @@ Full-length Munc13-1 is a massive homooligomer (~5,200 residues as a trimer) con
 
 ```text
 running-af2/
+├── pyproject.toml          # Project configuration, dependencies, and metadata managed by uv
+├── uv.lock                 # Deterministic dependency lockfile
 ├── app.py                  # Modal App, container image (ColabFold, Jax CUDA 12), and persistent volume
 ├── runner.py               # Remote inference function running colabfold_batch on 80 GB A100
 ├── run_prediction.py       # Local CLI entrypoint with streaming logs and automatic synchronization
@@ -43,44 +45,55 @@ running-af2/
 │   ├── construct_b.fasta   # Construct B (MUN-C2C Minimal Trimer, 3x 569 AA)
 │   └── construct_c.fasta   # Construct C (C2A - RIM1α heterodimer, 150 AA : 120 AA)
 ├── outputs/                # Local synchronized results (.pdb, .json, .a3m, .png)
-└── .venv/                  # Local Python 3.11 virtual environment
+└── .venv/                  # Local Python virtual environment managed by uv
 ```
 
 ---
 
 ## 4. Quickstart & Usage
 
-### 4.1 Activate Environment
+### 4.1 Install `uv` & Sync Environment
+This repository is managed with [`uv`](https://docs.astral.sh/uv/), an extremely fast Python package manager and project resolver.
+
+```bash
+# Install uv (if not already installed)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Automatically create virtual environment (.venv) and sync locked dependencies
+uv sync
+```
+
+Alternatively, you can activate the virtual environment manually:
 ```bash
 source .venv/bin/activate
 ```
 
 ### 4.2 Validate Targets (Dry Run)
-Verify multimer FASTA syntax (`>header\nCHAIN1:CHAIN2:...`) and residue integrity locally:
+Verify multimer FASTA syntax (`>header\nCHAIN1:CHAIN2:...`) and residue integrity locally without initiating cloud compute:
 ```bash
-python run_prediction.py --all --dry-run
+uv run python run_prediction.py --all --dry-run
 ```
 
 ### 4.3 Pre-Cache Model Weights
 Explicitly trigger parameter download and volume commit to prevent inference latency:
 ```bash
-python run_prediction.py --download-weights
+uv run python run_prediction.py --download-weights
 ```
 
 ### 4.4 Run Predictions
-Predict single constructs or all constructs:
+Predict single constructs or all constructs using `uv run`:
 ```bash
 # Run Construct B (Minimal Trimer - reduced memory benchmark)
-python run_prediction.py --target construct_b
+uv run python run_prediction.py --target construct_b
 
 # Run Construct C (C2A - RIM1α active zone heterodimer)
-python run_prediction.py --target construct_c
+uv run python run_prediction.py --target construct_c
 
 # Run Construct A (Full Munc13C Trimer, 3,435 residues)
-python run_prediction.py --target construct_a
+uv run python run_prediction.py --target construct_a
 
 # Run all targets sequentially
-python run_prediction.py --all
+uv run python run_prediction.py --all
 ```
 
 ---
@@ -100,7 +113,13 @@ The built-in analysis tool automatically verifies critical contact interfaces:
 
 To re-run quality checks on existing predictions at any time:
 ```bash
-python analyze_results.py outputs/construct_b targets/construct_b.fasta
+uv run python analyze_results.py outputs/construct_b targets/construct_b.fasta
+```
+
+### PyMOL 3D Visual Rendering
+To generate high-resolution PyMOL renderings and interactive session files (`.pse`) with automatic script dependency resolution:
+```bash
+uv run visualize_construct_b.py
 ```
 
 ### Example Structural Validation (Construct B Minimal Trimer)

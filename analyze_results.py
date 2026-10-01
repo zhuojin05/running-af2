@@ -11,6 +11,7 @@ Functions:
 """
 
 import json
+import sys
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 import matplotlib
@@ -232,8 +233,11 @@ def evaluate_biological_interfaces(
     return report
 
 
-if __name__ == "__main__":
-    import sys
+def main() -> None:
     target = sys.argv[1] if len(sys.argv) > 1 else "outputs/construct_b"
     fasta = sys.argv[2] if len(sys.argv) > 2 else "targets/construct_b.fasta"
     analyze_prediction_output(Path(target), Path(fasta))
+
+
+if __name__ == "__main__":
+    main()

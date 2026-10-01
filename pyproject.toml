@@ -1,0 +1,41 @@
+[project]
+name = "running-af2"
+version = "0.1.0"
+description = "Serverless Munc13-1 AlphaFold2-multimer prediction pipeline on Modal"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "Zhuo Jin" }
+]
+keywords = [
+    "AlphaFold2",
+    "ColabFold",
+    "Modal",
+    "Structural Biology",
+    "Munc13-1",
+    "Multimer",
+]
+dependencies = [
+    "matplotlib>=3.10.0",
+    "modal>=1.5.0",
+    "numpy>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/zhuojin05/running-af2"
+Repository = "https://github.com/zhuojin05/running-af2.git"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.9.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
